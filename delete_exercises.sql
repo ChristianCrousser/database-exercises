@@ -1,0 +1,1 @@
+SELECT * FROM albums WHERE release_year < 1991;
