@@ -1,1 +1,1 @@
-SELECT * FROM albums WHERE release_year < 1991;
+DELETE FROM albums WHERE release_year < 1991;

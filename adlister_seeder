@@ -1,0 +1,26 @@
+use practice_ad_db;
+
+INSERT INTO users (email, password)
+VALUES ('john@email.com', 'john123'),
+    ('emily@email.com', 'emily456'),
+    ('smith@email.com', 'smith789')
+;
+
+INSERT INTO ads (title, content, user_id)
+VALUES ('My ad', 'Buy this sofa.', 1),
+    ('Cool chair', 'Great value here!', 2),
+    ('Help needed', 'Water my garden while I\''m out of town', 2)
+;
+INSERT INTO categories (NAME)
+VALUES ('Furniture'),
+       ('Help wanted'),
+       ('Clothes'),
+       ('Antiques'),
+       ('Housing')
+       ;
+INSERT INTO ad_category (ad_id, category_id)
+VALUES (1, 1),
+       (2, 1),
+       (2, 4),
+       (3, 2)
+;

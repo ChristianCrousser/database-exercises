@@ -1,0 +1,49 @@
+use practice_ad_db;
+
+
+-- nested id values: 1 = john; 2 = emily
+
+SELECT email
+FROM users
+WHERE id = (
+    SELECT user_id
+    FROM ads
+    WHERE id = 1
+    );
+
+
+
+SELECT NAME
+FROM categories
+WHERE id IN (
+    SELECT category_id
+    FROM ad_category
+    WHERE ad_id = 2
+    );
+
+
+SELECT *
+FROM ads
+WHERE id IN (
+    SELECT ad_id
+    FROM ad_category
+    WHERE category_id = (
+        SELECT id
+        FROM categories
+        WHERE NAME = 'antiques'
+        )
+    );
+
+
+SELECT *
+FROM ads
+WHERE user_id = (
+    SELECT id
+    FROM users
+    WHERE email = 'emily@email.com'
+    );
+
+SELECT ads.title, ads.content, categories.name
+FROM ads
+JOIN ad_category ON ads.id = ad_category.ad_id
+JOIN categories ON ad_category.category_id = categories.id;
